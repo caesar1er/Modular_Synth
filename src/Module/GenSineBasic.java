@@ -14,7 +14,8 @@ public class GenSineBasic extend ModuleAbstract{
 
 
     @Override
-     public void Module(){
+    public void exec(){
+
         // Calcul du nouveau sample et mise à jour de l'indice de temps
         this.newSample = this.amplitude*Math.sin(2*PI*this.frequency*n/this.SAMPLE_FREQ);
         this.n = this.n + 1;
