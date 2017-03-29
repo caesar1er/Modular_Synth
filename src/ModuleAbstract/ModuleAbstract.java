@@ -3,7 +3,7 @@
 // ModuleAbstract \\
 
 
-public class ModuleAbstract{
+public abstract class ModuleAbstract{
 
     public int SAMPLE_FREQ = 44100;
     private String name;
@@ -21,5 +21,26 @@ public class ModuleAbstract{
     public String getName(){
       return this.name;
     }
+    
+    public static Connexion connect(ModuleAbstract mOutput, int idOutputPort, ModuleAbstract mInput, int idInputPort) {
+    	Connexion c=new Connexion(mOutput.outputPorts[idOutputPort], mInput.inputPorts[idInputPort]);
+    	return c;
+    }
+    
+    public void setAndSendOutputPortValue(int idOutputPort, double sample){
+    	this.outputPorts[idOutputPort].setValue(sample);
+    	if (this.outputPorts[idOutputPort].isConnected()==true) {
+    		this.outputPorts[idOutputPort].getConnexion().communicate();
+    	}
+    }
+    
+    public double getInputPortValue(int idInputPort) {
+    	return this.inputPorts[idInputPort].getValue();
+    }
 
+    public void setInputPortValue(int idInputPort, double value) {
+    	this.inputPorts[idInputPort].setValue(value);
+    }
+    
+    public abstract void exec();
 }
