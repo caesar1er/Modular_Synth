@@ -13,7 +13,7 @@ public class Connexion{
     }
 
     public void communicate(){
-	downModulePort.setValue(upModulePort.getValue);
+	downModulePort.setValue(upModulePort.getValue());
       
     }
     
