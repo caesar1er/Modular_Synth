@@ -5,13 +5,13 @@ public class CommunicationPort{
 
     private int idPort;
     private double sampleValue;
-    private ModuleAbstract modulePort;
-    private Connexion connexionPort;
+    private ModuleAbstract module;
+    private Connexion connexion;
 
     public Connexion(ModuleAbstract m, int idPort){
-        this.modulePort = m;
+        this.module = m;
         this.idPort = idPort;
-        this.connexionPort = null;
+        this.connexion = null;
 
     }
 
@@ -20,7 +20,7 @@ public class CommunicationPort{
     }
 
     public ModuleAbstract getModulePort(){
-        return this.ModuleAbstract;
+        return this.Module;
     }
 
     public void setValue( double newSample){
@@ -32,16 +32,16 @@ public class CommunicationPort{
     }
 
     public void setConnexion(Connexion newConnexion){
-        this.connexionPort = newConnexion;
+        this.connexion = newConnexion;
     }
 
     public Connexion getConnexion(){
-        return this.connexionPort;
+        return this.connexion;
     }
 
     public boolean isConnected(){
         boolean b = new boolean;
-        if (this.connexionPort == null){
+        if (this.connexion == null){
             b = false;
         }
         else{

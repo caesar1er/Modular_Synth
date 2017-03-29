@@ -4,8 +4,8 @@
 
 public class Connexion{
 
-    private ModuleAbstract upModulePort;
-    private ModuleAbstract downModulePort;
+    private CommunicationPort upModulePort;
+    private CommunicationPort downModulePort;
 
     public Connexion(ModuleAbstract upModulePort, ModuleAbstract downModulePort){
         this.upModulePort = upModulePort;
@@ -14,7 +14,7 @@ public class Connexion{
 
     public void communicate(){
 
-      
+
     }
 
 }
