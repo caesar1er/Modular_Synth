@@ -8,6 +8,20 @@ public class CommunicationPort{
     private ModuleAbstract modulePort;
     private Connexion connexionPort;
 
+    public Connexion(ModuleAbstract m, int idPort){
+        this.modulePort = m;
+        this.idPort = idPort;
+        this.connexionPort = null;
+
+    }
+
+    public int getId(){
+        return this.idPort;
+    }
+
+    public ModuleAbstract getModulePort(){
+        return this.ModuleAbstract;
+    }
 
     public void setValue( double newSample){
         this.sampleValue = newSample;
