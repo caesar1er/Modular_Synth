@@ -1,9 +1,6 @@
 package src;
 
-import java.util.LinkedList;
 import java.util.*;
-import java.util.Map;
-import java.util.HashMap;
 
 public class Patch {
 	private String nom;
@@ -11,7 +8,7 @@ public class Patch {
 	private Set <Connexion> listConnexion;
 	
 	Map <String , ModuleAbstract > tableAssociativeAccesParNom;
-	Iterator <ModuleAbstract> it = listModule.iterator();
+	
 	
 	public Patch(String nom){
 		this.nom=nom;
@@ -47,6 +44,7 @@ public class Patch {
       }
     
     public void exec(){
+    	Iterator <ModuleAbstract> it = listModule.iterator();
     	while (it.hasNext()){
     		ModuleAbstract m=it.next();
     		m.exec();
@@ -54,11 +52,9 @@ public class Patch {
     }
     
     public void exec(int nbStep){
+
     	for (int i=0; i<nbStep; i++){
-        	while (it.hasNext()){
-        		ModuleAbstract m=it.next();
-        		m.exec();
-        	}
+        	exec();
     	}
     }
 }
